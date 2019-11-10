@@ -1,0 +1,1 @@
+gh pages https://nikitashekun.github.io/FSD-2nd-task/
