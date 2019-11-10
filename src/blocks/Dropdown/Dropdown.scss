@@ -166,11 +166,29 @@
     color: $dark-shade-50;
   }
 
+  &__minus-button {
+
+    &--disabled {
+      border-color: $dark-shade-05;
+
+      & .Dropdown__minus-button-text {
+        color: $dark-shade-25;
+      }
+    }
+  }
+
+
   &__number {
     font-size: 12px;
     font-weight: 700;
     color: $dark-shade;
     line-height: 28px;
+    width: 32px;
+    outline: none;
+    text-align: center;
+    border: 0;
+    cursor: default;
+    user-select: none;
   }
 
   &__menu-bottom-buttons {
@@ -200,6 +218,13 @@
   &__apply-button-text {
     color: $purple;
     padding-right: 7px;
+  }
+
+  &__reset-button {
+
+    &--disabled {
+      visibility: hidden;
+    }
   }
 
   &__reset-button-text {

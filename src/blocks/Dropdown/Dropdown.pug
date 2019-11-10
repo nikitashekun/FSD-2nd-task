@@ -35,29 +35,29 @@ mixin Dropdown(text, textPlaceholder, mods)
       .Dropdown__menu-item
         p.Dropdown__item-text взрослые
         .Dropdown__item-buttons
-          button.Dropdown__minus-button
+          button.Dropdown__minus-button(class='Dropdown__minus-button--disabled')
             p.Dropdown__minus-button-text -
-          p.Dropdown__number 0
+          input.Dropdown__number(type="text", value="0", readonly)
           button.Dropdown__plus-button
             p.Dropdown__plus-button-text +
       .Dropdown__menu-item
         p.Dropdown__item-text дети
         .Dropdown__item-buttons
-          button.Dropdown__minus-button
+          button.Dropdown__minus-button(class='Dropdown__minus-button--disabled')
             p.Dropdown__minus-button-text -
-          p.Dropdown__number 0
+          input.Dropdown__number(type="text", value="0", readonly)
           button.Dropdown__plus-button
             p.Dropdown__plus-button-text +
       .Dropdown__menu-item
         p.Dropdown__item-text младенцы
         .Dropdown__item-buttons
-          button.Dropdown__minus-button
+          button.Dropdown__minus-button(class='Dropdown__minus-button--disabled')
             p.Dropdown__minus-button-text -
-          p.Dropdown__number 0
+          input.Dropdown__number(type="text", value="0")
           button.Dropdown__plus-button
             p.Dropdown__plus-button-text +
       .Dropdown__menu-bottom-buttons
         button.Dropdown__reset-button
-          p.Dropdown__reset-button-text очистить
+          p.Dropdown__reset-button-text(class='Dropdown__reset-button-text--disabled') очистить
         button.Dropdown__apply-button
           p.Dropdown__apply-button-text применить
