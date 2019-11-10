@@ -1,0 +1,215 @@
+// В этом файле должны быть стили для БЭМ-блока Dropdown, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.Dropdown {
+  box-sizing: border-box;
+  width: 320px;
+
+  &__label {
+    position: relative;
+    z-index: 5;
+  }
+
+  &__text {
+    height: 15px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: $font-family;
+    font-weight: 700;
+    color: $dark-shade;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  &__select {
+    box-sizing: border-box;
+    position: relative;
+    width: 320px;
+    height: 44px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+    padding: 0;
+    background: #fff;
+    user-select: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $dark-shade-50;
+    }
+
+    &:hover .Dropdown__select-text::after,
+    &:focus .Dropdown__select-text::after {
+      color: $dark-shade-75;
+    }
+
+    &--active {
+      border-radius: 4px 4px 0 0;
+      border: 1px solid $dark-shade-50;
+
+      & .Dropdown__select-text::after {
+        color: $dark-shade-75;
+      }
+    }
+  }
+
+  &__select-text {
+    display: flex;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: $dark-shade-75;
+    width: 262px;
+    height: 14px;
+    padding: 13px 0 17px 14px;
+    outline: none;
+    user-select: none;
+
+    &::after {
+      /* stylelint-disable */
+      content: 'keyboard_arrow_down';
+      position: absolute;
+      display: flex;
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      right: 0;
+      font-family: 'Material Icons';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      color: $dark-shade-50;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'liga';
+      /* stylelint-enable */
+    }
+  }
+
+  &__menu {
+    background-color: #fff;
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 56px;
+    width: 320px;
+    height: 169px;
+    padding-top: 10px;
+    border: 1px solid $dark-shade-50;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 10px 20px $dark-shade-05;
+
+    &--visible {
+      display: block;
+    }
+  }
+
+  &__menu-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item-text {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    padding: 13px 0 0 15px;
+    color: $dark-shade;
+  }
+
+  &__item-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 92px;
+    padding: 6px 6px 0 0;
+  }
+
+  &__plus-button,
+  &__minus-button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 22px;
+    padding: 0;
+    outline: none;
+  }
+
+  &__plus-button-text,
+  &__minus-button-text {
+    box-sizing: border-box;
+    width: 10px;
+    height: 21px;
+    font-family: $font-family;
+    font-size: 18px;
+    color: $dark-shade-50;
+  }
+
+  &__number {
+    font-size: 12px;
+    font-weight: 700;
+    color: $dark-shade;
+    line-height: 28px;
+  }
+
+  &__menu-bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+  }
+
+  &__apply-button,
+  &__reset-button {
+    height: 15px;
+    background: none;
+    outline: none;
+    border: 0;
+    padding: 0;
+  }
+
+  &__apply-button-text,
+  &__reset-button-text {
+    font-family: $font-family;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__apply-button-text {
+    color: $purple;
+    padding-right: 7px;
+  }
+
+  &__reset-button-text {
+    color: $dark-shade-50;
+    padding-left: 14px;
+  }
+
+  &--ui-kit {
+    position: absolute;
+    top: 240px;
+    left: 141px;
+  }
+}

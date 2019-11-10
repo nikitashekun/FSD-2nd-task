@@ -1,0 +1,63 @@
+//- Все примеси в этом файле должны начинаться c имени блока (Dropdown)
+
+mixin Dropdown(text, textPlaceholder, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +Dropdown('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' Dropdown--' + modsList[i].trim();
+      }
+    }
+
+    if (text === '') {
+      text = 'Dropdown';
+    }
+
+    if (textPlaceholder === '') {
+      textPlaceholder = 'Email';
+    }
+
+  .Dropdown(class=allMods)&attributes(attributes)
+    label.Dropdown__label
+      .Dropdown__text #{text}
+      button.Dropdown__select(onclick="ToggleDropdownMenu()")
+        p.Dropdown__select-text Сколько гостей
+    .Dropdown__menu
+      .Dropdown__menu-item
+        p.Dropdown__item-text взрослые
+        .Dropdown__item-buttons
+          button.Dropdown__minus-button
+            p.Dropdown__minus-button-text -
+          p.Dropdown__number 0
+          button.Dropdown__plus-button
+            p.Dropdown__plus-button-text +
+      .Dropdown__menu-item
+        p.Dropdown__item-text дети
+        .Dropdown__item-buttons
+          button.Dropdown__minus-button
+            p.Dropdown__minus-button-text -
+          p.Dropdown__number 0
+          button.Dropdown__plus-button
+            p.Dropdown__plus-button-text +
+      .Dropdown__menu-item
+        p.Dropdown__item-text младенцы
+        .Dropdown__item-buttons
+          button.Dropdown__minus-button
+            p.Dropdown__minus-button-text -
+          p.Dropdown__number 0
+          button.Dropdown__plus-button
+            p.Dropdown__plus-button-text +
+      .Dropdown__menu-bottom-buttons
+        button.Dropdown__reset-button
+          p.Dropdown__reset-button-text очистить
+        button.Dropdown__apply-button
+          p.Dropdown__apply-button-text применить

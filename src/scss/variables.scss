@@ -1,0 +1,48 @@
+// ----------------------------Base colors--------------------------------
+
+$dark-shade:                rgba(31, 32, 62, 1);
+$dark-shade-75:             rgba(31, 32, 62, 0.75);
+$dark-shade-50:             rgba(31, 32, 62, 0.5);
+$dark-shade-25:             rgba(31, 32, 62, 0.25);
+$dark-shade-05:             rgba(31, 32, 62, 0.05);
+$purple:                    #bc9cff;
+$green:                     #6fcf97;
+$body-background-color:     #fff;
+
+// ----------------------------Text---------------------------------------
+
+// Base body text
+
+$text-color:                  $dark-shade-75;
+$font-size:                   14px;
+$text-line-height:            24px;
+$font-family:                 'Montserrat';
+
+// Link
+
+$link-color:                  $dark-shade;
+$link-color-active:           $dark-shade;
+
+// H3
+
+$text-color-h3:               $dark-shade;
+$font-size-h3:                12px;
+$font-weight-h3:              bold;
+$text-line-height-h3:         15px;
+$font-family-h3:              'Montserrat';
+
+// H2
+
+$text-color-h2:               $dark-shade;
+$font-size-h2:                12px;
+$font-weight-h2:              bold;
+$text-line-height-h2:         15px;
+$font-family-h2:              'Quicksand';
+
+// H1
+
+$text-color-h1:               $dark-shade;
+$font-size-h1:                24px;
+$font-weight-h1:              bold;
+$text-line-height-h1:         30px;
+$font-family-h1:              'Quicksand';

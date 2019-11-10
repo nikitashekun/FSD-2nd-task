@@ -1,0 +1,86 @@
+// В этом файле должны быть стили для БЭМ-блока Text-Field, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.Text-Field {
+  box-sizing: border-box;
+  width: 320px;
+
+  &__text {
+    height: 15px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 15px;
+    font-family: $font-family;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    width: 320px;
+    height: 44px;
+    background: #fff;
+    border: 1px solid $dark-shade-25;
+    border-radius: 4px;
+    font-family: $font-family;
+    font-size: 14px;
+    line-height: 18px;
+    color: $dark-shade-75;
+    padding: 13px 0 13px 15px;
+    outline: none;
+
+    &::-webkit-input-placeholder { /* Chrome */
+      color: rgb(31, 32, 62);
+      opacity: 0.25;
+    }
+
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: rgb(31, 32, 62);
+      opacity: 0.25;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: rgb(31, 32, 62);
+      opacity: 0.25;
+    }
+
+    &:-moz-placeholder { /* Firefox 4 - 18 */
+      color: rgb(31, 32, 62);
+      opacity: 0.25;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $dark-shade-50;
+      color: $dark-shade-75;
+
+      &::-webkit-input-placeholder { /* Chrome */
+        color: rgb(31, 32, 62);
+        opacity: 0.75;
+      }
+
+      &:-ms-input-placeholder { /* IE 10+ */
+        color: rgb(31, 32, 62);
+        opacity: 0.75;
+      }
+
+      &::-moz-placeholder { /* Firefox 19+ */
+        color: rgb(31, 32, 62);
+        opacity: 0.75;
+      }
+
+      &:-moz-placeholder { /* Firefox 4 - 18 */
+        color: rgb(31, 32, 62);
+        opacity: 0.75;
+      }
+    }
+  }
+
+  &--ui-kit {
+    position: absolute;
+    top: 140px;
+    left: 141px;
+  }
+}
