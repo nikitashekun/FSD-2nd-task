@@ -37,36 +37,30 @@ if(~navigator.appVersion.indexOf("Linux"))cth('linux');
     <div class="Dropdown__menu">
       <div class="Dropdown__menu-item">
         <p class="Dropdown__item-text">взрослые</p>
-        <div class="Dropdown__item-buttons"><button class="Dropdown__minus-button">
+        <div class="Dropdown__item-buttons"><button class="Dropdown__minus-button Dropdown__minus-button--disabled">
             <p class="Dropdown__minus-button-text">-</p>
-          </button>
-          <p class="Dropdown__number">0</p><button class="Dropdown__plus-button">
+          </button><input class="Dropdown__number" type="text" value="0" readonly="readonly" /><button class="Dropdown__plus-button">
             <p class="Dropdown__plus-button-text">+</p>
-          </button>
-        </div>
+          </button></div>
       </div>
       <div class="Dropdown__menu-item">
         <p class="Dropdown__item-text">дети</p>
-        <div class="Dropdown__item-buttons"><button class="Dropdown__minus-button">
+        <div class="Dropdown__item-buttons"><button class="Dropdown__minus-button Dropdown__minus-button--disabled">
             <p class="Dropdown__minus-button-text">-</p>
-          </button>
-          <p class="Dropdown__number">0</p><button class="Dropdown__plus-button">
+          </button><input class="Dropdown__number" type="text" value="0" readonly="readonly" /><button class="Dropdown__plus-button">
             <p class="Dropdown__plus-button-text">+</p>
-          </button>
-        </div>
+          </button></div>
       </div>
       <div class="Dropdown__menu-item">
         <p class="Dropdown__item-text">младенцы</p>
-        <div class="Dropdown__item-buttons"><button class="Dropdown__minus-button">
+        <div class="Dropdown__item-buttons"><button class="Dropdown__minus-button Dropdown__minus-button--disabled">
             <p class="Dropdown__minus-button-text">-</p>
-          </button>
-          <p class="Dropdown__number">0</p><button class="Dropdown__plus-button">
+          </button><input class="Dropdown__number" type="text" value="0" /><button class="Dropdown__plus-button">
             <p class="Dropdown__plus-button-text">+</p>
-          </button>
-        </div>
+          </button></div>
       </div>
       <div class="Dropdown__menu-bottom-buttons"><button class="Dropdown__reset-button">
-          <p class="Dropdown__reset-button-text">очистить</p>
+          <p class="Dropdown__reset-button-text Dropdown__reset-button-text--disabled">очистить</p>
         </button><button class="Dropdown__apply-button">
           <p class="Dropdown__apply-button-text">применить</p>
         </button></div>
