@@ -3,6 +3,7 @@
 const ready = require('../../js/utils/documentReady.js');
 
 ready(function(){
+    /* ----------------------------------------Логика выпадашки------------------------------------ */
     let dropdownButtons = document.getElementsByClassName("Dropdown__select");
     for (let i = 0; i < dropdownButtons.length; i++) {
         let dropdownButton = dropdownButtons[i];
@@ -42,7 +43,7 @@ ready(function(){
             }
         }
     }
-
+    /* ----------------------------------------Логика кнопки + и - и кол-ва ------------------------------------ */
     let dropDownMenuButtons = document.getElementsByClassName("Dropdown__minus-button");
     for (let i = 0; i < dropDownMenuButtons.length; i++) {
         let dropdownButton = dropDownMenuButtons[i];
@@ -78,37 +79,90 @@ ready(function(){
     }
 
     function numberButton() {
-        if (Number(this.getAttribute("value")) !== 0) {
-            this.parentNode.querySelector(".Dropdown__minus-button").classList.remove("Dropdown__minus-button--disabled");
-            this.parentNode.parentNode.parentNode.querySelector(".Dropdown__reset-button").classList.remove("Dropdown__reset-button--disabled");
-        }
-        else {
-            console.log(this.parentNode.parentNode.parentNode.querySelector(".Dropdown__reset-button"));
-            this.parentNode.querySelector(".Dropdown__minus-button").classList.add("Dropdown__minus-button--disabled");
-            this.parentNode.parentNode.parentNode.querySelector(".Dropdown__reset-button").classList.add("Dropdown__reset-button--disabled");
-        }
-
         let values = this.parentNode.parentNode.parentNode.querySelectorAll(".Dropdown__number");
         let value = 0;
-
         for (let i = 0; i < values.length; i++) {
             value += Number(values[i].getAttribute("value"));
         }
 
-        if (value === 0) {
-            this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = "Сколько гостей";
+        if (Number(this.getAttribute("value")) !== 0) {
+            this.parentNode.querySelector(".Dropdown__minus-button").classList.remove("Dropdown__minus-button--disabled");
+            this.parentNode.parentNode.parentNode.querySelector(".Dropdown__reset-button").classList.remove("Dropdown__reset-button--disabled");
         }
-        else if (value === 1) {
-            this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = "1 гость";
+        if (!value) {
+            this.parentNode.parentNode.parentNode.querySelector(".Dropdown__reset-button").classList.add("Dropdown__reset-button--disabled");
         }
-        else if ((value > 1)&&(value < 5)) {
-            this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = value + " гостя";
+        if (Number(this.getAttribute("value")) === 0) {
+            this.parentNode.querySelector(".Dropdown__minus-button").classList.add("Dropdown__minus-button--disabled");
         }
-        else {
-            this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = value + " гостей";
+
+        let type = this.getAttribute('name');
+        switch (type) {
+            case 'guests':
+                if (value === 0) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = "Сколько гостей";
+                }
+                else if (value === 1) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = "1 гость";
+                }
+                else if ((value > 1)&&(value < 5)) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = value + " гостя";
+                }
+                else {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = value + " гостей";
+                }
+                break;
+            case 'rooms':
+                let numberValues = this.parentNode.parentNode.parentNode.querySelectorAll(".Dropdown__number"); 
+                let roomsValues = {
+                    rooms: Number(numberValues[0].getAttribute("value")),
+                    beds: Number(numberValues[1].getAttribute("value")),
+                    baths: Number(numberValues[2].getAttribute("value"))};
+                /*--------------------- спальни ------------------------ */
+                if (roomsValues.rooms === 0) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = "0 спален, ";
+                }
+                else if (roomsValues.rooms === 1) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = "1 спальня, ";
+                }
+                else if ((roomsValues.rooms > 1)&&(roomsValues.rooms < 5)) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = roomsValues.rooms + " спальни, ";
+                }
+                else {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML = roomsValues.rooms + " спален, ";
+                }
+                /*--------------------- кровати ------------------------ */
+                if (roomsValues.beds === 0) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += "0 кроватей, ";
+                }
+                else if (roomsValues.beds === 1) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += "1 кровать, ";
+                }
+                else if ((roomsValues.beds > 1)&&(roomsValues.beds < 5)) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += roomsValues.beds + " кровати, ";
+                }
+                else {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += roomsValues.beds + " кроватей, ";
+                }
+                /*--------------------- Ванны ------------------------ */
+                if (roomsValues.baths === 0) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += "0 ванн";
+                }
+                else if (roomsValues.baths === 1) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += "1 ванна";
+                }
+                else if ((roomsValues.baths > 1)&&(roomsValues.baths < 5)) {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += roomsValues.baths + " ванны";
+                }
+                else {
+                    this.parentNode.parentNode.parentNode.parentNode.querySelector(".Dropdown__select-text").innerHTML += roomsValues.baths + " ванн";
+                }
+                break;
+            default:
+                break;
         }
     }
-
+    /* ----------------------------------------Логика Применить и Сбросить ------------------------------------ */
     let dropDownResetButtons = document.getElementsByClassName("Dropdown__reset-button");
     for (let i = 0; i < dropDownResetButtons.length; i++) {
         let dropDownResetButton = dropDownResetButtons[i];
@@ -132,6 +186,6 @@ ready(function(){
     }
 
     function applyButton() {
-
+        this.parentNode.parentNode.classList.remove('Dropdown__menu--visible');
     }
 });

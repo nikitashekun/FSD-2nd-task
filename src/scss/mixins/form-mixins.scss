@@ -1,3 +1,4 @@
+/* stylelint-disable */
 @mixin field-text {
   display: inline-block;
   vertical-align: middle;
@@ -11,7 +12,7 @@
   font-size: 1em;
   font-family: inherit;
   background-color: #fff;
-  -moz-appearance: textfield; // stylelint-disable-line
+  -moz-appearance: textfield; 
   appearance: textfield;
 
   &:focus {
@@ -28,7 +29,7 @@
   &::-webkit-search-decoration,
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
-    -webkit-appearance: none; // stylelint-disable-line  property-no-vendor-prefix
+    -webkit-appearance: none; 
   }
 
   &[type='color'] {
@@ -49,7 +50,7 @@
   line-height: 1.2em;
   color: $text-color-muted;
 
-  &:empty { // stylelint-disable-line
+  &:empty { 
     display: none;
   }
 }
